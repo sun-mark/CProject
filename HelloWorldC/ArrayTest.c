@@ -65,7 +65,7 @@ int main() {
 //            [3]= {[0]= 3, 6},
 //            {4, 5},
 //    };
-//    PRINTLN_INT(sumIntArrays(5, 2, array));
+    PRINTLN_INT(sumIntArrays(5, 2, array));
 //    int array[10] = {[1]=11, [0]=12};
 //    for (int i = 2; i < 10; ++i) {
 //        array[i] = i;
