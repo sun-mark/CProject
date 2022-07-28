@@ -48,7 +48,7 @@ int sumIntArray(const int array[], int length) {
     for (int i = 0; i < length; ++i) {
         sum += array[i];
     }
-//    ¿ÉÒÔÉèÖÃÊý×éÀàÐÍµÄÄÚÈÝ
+//    å¯ä»¥è®¾ç½®æ•°ç»„ç±»åž‹çš„å†…å®¹
 //    array[length - 1] = 213213;
     return sum;
 }
@@ -81,6 +81,6 @@ int main() {
 //    PRINTLNF("%d", 1 + 232);
 //    char a = 'd';
 //    PRINTL_CHART(a);
-
+//
     return 0;
 }
