@@ -8,6 +8,7 @@
  * @return
  */
 int main() {
+	//
     //Ëæ»úÊı
     srand(time(NULL));
     int ranndom = rand();
