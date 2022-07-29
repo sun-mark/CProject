@@ -1,6 +1,7 @@
 E:/CProject/HelloWorldC/cmake-build-debug-mingw-90/CMakeFiles/ArrayTest.c.dir
 E:/CProject/HelloWorldC/cmake-build-debug-mingw-90/CMakeFiles/CharTest.c.dir
 E:/CProject/HelloWorldC/cmake-build-debug-mingw-90/CMakeFiles/IntTest.c.dir
+E:/CProject/HelloWorldC/cmake-build-debug-mingw-90/CMakeFiles/Pointer.c.dir
 E:/CProject/HelloWorldC/cmake-build-debug-mingw-90/CMakeFiles/Test.c.dir
 E:/CProject/HelloWorldC/cmake-build-debug-mingw-90/CMakeFiles/handeta.c.dir
 E:/CProject/HelloWorldC/cmake-build-debug-mingw-90/CMakeFiles/head.c.dir

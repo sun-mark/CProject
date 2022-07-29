@@ -149,6 +149,42 @@ build IntTest.c.exe: C_EXECUTABLE_LINKER__IntTest.2ec_Debug CMakeFiles\IntTest.c
   TARGET_PDB = IntTest.c.pdb
 
 # =============================================================================
+# Object build statements for EXECUTABLE target Pointer.c
+
+
+#############################################
+# Order-only phony target for Pointer.c
+
+build cmake_object_order_depends_target_Pointer.c: phony || CMakeFiles\Pointer.c.dir
+
+build CMakeFiles\Pointer.c.dir\Pointer.c.obj: C_COMPILER__Pointer.2ec_Debug E$:\CProject\HelloWorldC\Pointer.c || cmake_object_order_depends_target_Pointer.c
+  FLAGS = /DWIN32 /D_WINDOWS /Zi /Ob0 /Od /RTC1 -MDd -std:c11
+  OBJECT_DIR = CMakeFiles\Pointer.c.dir
+  OBJECT_FILE_DIR = CMakeFiles\Pointer.c.dir
+  TARGET_COMPILE_PDB = CMakeFiles\Pointer.c.dir\
+  TARGET_PDB = Pointer.c.pdb
+
+
+# =============================================================================
+# Link build statements for EXECUTABLE target Pointer.c
+
+
+#############################################
+# Link the executable Pointer.c.exe
+
+build Pointer.c.exe: C_EXECUTABLE_LINKER__Pointer.2ec_Debug CMakeFiles\Pointer.c.dir\Pointer.c.obj
+  FLAGS = /DWIN32 /D_WINDOWS /Zi /Ob0 /Od /RTC1 -MDd
+  LINK_FLAGS = /machine:X86 /debug /INCREMENTAL /subsystem:console
+  LINK_LIBRARIES = kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib
+  OBJECT_DIR = CMakeFiles\Pointer.c.dir
+  POST_BUILD = cd .
+  PRE_LINK = cd .
+  TARGET_COMPILE_PDB = CMakeFiles\Pointer.c.dir\
+  TARGET_FILE = Pointer.c.exe
+  TARGET_IMPLIB = Pointer.c.lib
+  TARGET_PDB = Pointer.c.pdb
+
+# =============================================================================
 # Object build statements for EXECUTABLE target Test.c
 
 
@@ -360,6 +396,8 @@ build CharTest.c: phony CharTest.c.exe
 
 build IntTest.c: phony IntTest.c.exe
 
+build Pointer.c: phony Pointer.c.exe
+
 build Test.c: phony Test.c.exe
 
 build handeta.c: phony handeta.c.exe
@@ -378,7 +416,7 @@ build logisim.c: phony logisim.c.exe
 #############################################
 # Folder: E:/CProject/HelloWorldC/cmake-build-debug-vs-160
 
-build all: phony ArrayTest.c.exe CharTest.c.exe IntTest.c.exe Test.c.exe handeta.c.exe head.c.exe hello.c.exe logisim.c.exe
+build all: phony ArrayTest.c.exe CharTest.c.exe IntTest.c.exe Pointer.c.exe Test.c.exe handeta.c.exe head.c.exe hello.c.exe logisim.c.exe
 
 # =============================================================================
 # Built-in targets

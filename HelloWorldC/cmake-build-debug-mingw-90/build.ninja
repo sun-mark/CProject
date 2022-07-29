@@ -140,6 +140,39 @@ build IntTest.c.exe: C_EXECUTABLE_LINKER__IntTest.2ec_Debug CMakeFiles/IntTest.c
   TARGET_PDB = IntTest.c.exe.dbg
 
 # =============================================================================
+# Object build statements for EXECUTABLE target Pointer.c
+
+
+#############################################
+# Order-only phony target for Pointer.c
+
+build cmake_object_order_depends_target_Pointer.c: phony || CMakeFiles/Pointer.c.dir
+
+build CMakeFiles/Pointer.c.dir/Pointer.c.obj: C_COMPILER__Pointer.2ec_Debug E$:/CProject/HelloWorldC/Pointer.c || cmake_object_order_depends_target_Pointer.c
+  DEP_FILE = CMakeFiles\Pointer.c.dir\Pointer.c.obj.d
+  FLAGS = -g -std=gnu11
+  OBJECT_DIR = CMakeFiles\Pointer.c.dir
+  OBJECT_FILE_DIR = CMakeFiles\Pointer.c.dir
+
+
+# =============================================================================
+# Link build statements for EXECUTABLE target Pointer.c
+
+
+#############################################
+# Link the executable Pointer.c.exe
+
+build Pointer.c.exe: C_EXECUTABLE_LINKER__Pointer.2ec_Debug CMakeFiles/Pointer.c.dir/Pointer.c.obj
+  FLAGS = -g
+  LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
+  OBJECT_DIR = CMakeFiles\Pointer.c.dir
+  POST_BUILD = cd .
+  PRE_LINK = cd .
+  TARGET_FILE = Pointer.c.exe
+  TARGET_IMPLIB = libPointer.c.dll.a
+  TARGET_PDB = Pointer.c.exe.dbg
+
+# =============================================================================
 # Object build statements for EXECUTABLE target Test.c
 
 
@@ -336,6 +369,8 @@ build CharTest.c: phony CharTest.c.exe
 
 build IntTest.c: phony IntTest.c.exe
 
+build Pointer.c: phony Pointer.c.exe
+
 build Test.c: phony Test.c.exe
 
 build handeta.c: phony handeta.c.exe
@@ -354,7 +389,7 @@ build logisim.c: phony logisim.c.exe
 #############################################
 # Folder: E:/CProject/HelloWorldC/cmake-build-debug-mingw-90
 
-build all: phony ArrayTest.c.exe CharTest.c.exe IntTest.c.exe Test.c.exe handeta.c.exe head.c.exe hello.c.exe logisim.c.exe
+build all: phony ArrayTest.c.exe CharTest.c.exe IntTest.c.exe Pointer.c.exe Test.c.exe handeta.c.exe head.c.exe hello.c.exe logisim.c.exe
 
 # =============================================================================
 # Built-in targets

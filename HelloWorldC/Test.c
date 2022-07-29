@@ -8,7 +8,7 @@
  * @return
  */
 int main() {
-	//
+
     //随机数
     srand(time(NULL));
     int ranndom = rand();
@@ -25,6 +25,8 @@ int main() {
             puts("小了");
         }
     }
-
+    printf("%s\n", "输入任意字符退出");
+    scanf("%s");
+    exit(0);//等待终端输入任意字符
     return 0;
 }
