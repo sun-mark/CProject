@@ -1,3 +1,0 @@
-E:/CProject/HelloWorldC/cmake-build-debug-mingw/CMakeFiles/HelloWorldC.dir
-E:/CProject/HelloWorldC/cmake-build-debug-mingw/CMakeFiles/edit_cache.dir
-E:/CProject/HelloWorldC/cmake-build-debug-mingw/CMakeFiles/rebuild_cache.dir
