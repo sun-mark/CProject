@@ -1,4 +1,0 @@
-D:\CLion2022.1\bin\cmake\win\bin\cmake.exe -DCMAKE_BUILD_TYPE=Debug -DCMAKE_MAKE_PROGRAM=D:/CLion2022.1/bin/ninja/win/ninja.exe -G Ninja -S D:\CProject\HelloWorldC -B D:\CProject\HelloWorldC\cmake-build-debug-visual-studio
--- Configuring done
--- Generating done
--- Build files have been written to: D:/CProject/HelloWorldC/cmake-build-debug-visual-studio
