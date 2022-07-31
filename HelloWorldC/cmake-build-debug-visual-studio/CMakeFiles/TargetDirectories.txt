@@ -1,0 +1,12 @@
+D:/CProject/HelloWorldC/cmake-build-debug-visual-studio/CMakeFiles/ArrayTest.c.dir
+D:/CProject/HelloWorldC/cmake-build-debug-visual-studio/CMakeFiles/CharTest.c.dir
+D:/CProject/HelloWorldC/cmake-build-debug-visual-studio/CMakeFiles/IntTest.c.dir
+D:/CProject/HelloWorldC/cmake-build-debug-visual-studio/CMakeFiles/Pointer.c.dir
+D:/CProject/HelloWorldC/cmake-build-debug-visual-studio/CMakeFiles/Test.c.dir
+D:/CProject/HelloWorldC/cmake-build-debug-visual-studio/CMakeFiles/handeta.c.dir
+D:/CProject/HelloWorldC/cmake-build-debug-visual-studio/CMakeFiles/head.c.dir
+D:/CProject/HelloWorldC/cmake-build-debug-visual-studio/CMakeFiles/hello.c.dir
+D:/CProject/HelloWorldC/cmake-build-debug-visual-studio/CMakeFiles/logisim.c.dir
+D:/CProject/HelloWorldC/cmake-build-debug-visual-studio/CMakeFiles/struct.c.dir
+D:/CProject/HelloWorldC/cmake-build-debug-visual-studio/CMakeFiles/edit_cache.dir
+D:/CProject/HelloWorldC/cmake-build-debug-visual-studio/CMakeFiles/rebuild_cache.dir
