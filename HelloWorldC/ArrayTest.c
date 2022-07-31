@@ -19,7 +19,7 @@ int twodArray() {
     return 0;
 }
 
-void swpa(int array[], int first, int second) {
+void swap(int array[], int first, int second) {
     array[first] = array[first] ^ array[second];
     array[second] = array[first] ^ array[second];
     array[first] = array[first]  ^ array[second];
@@ -55,7 +55,7 @@ int sumIntArray(const int array[], int length) {
 
 int main() {
     int array[] = {132, 221};
-    swpa(array, 0, 1);
+    swap(array, 0, 1);
     PRINTLN_INT(array[0]);
     PRINTLN_INT(array[1]);
 //    int array[5][2] = {

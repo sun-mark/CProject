@@ -5,7 +5,7 @@ int main() {
   char a = '1';
   char b = 'b';
   //C95 unicode
-  wchar_t zhong = L'жа';
+  wchar_t zhong = L'??';
   wchar_t zhong_unicode = L'\u4e2d';
   printf(" char a %d\n", a);
   printf(" char a %c\n", a);

@@ -6,7 +6,7 @@
 
 #ifndef HELLOWORLDC_IO_UTILS_H
 #define HELLOWORLDC_IO_UTILS_H
-//#define DEBUG
+#define DEBUG
 #ifdef DEBUG
 #define PRINTLNF(format, ...) printf("("__FILE__":%d) %s : "format"\n",__LINE__,__FUNCTION__,##__VA_ARGS__)
 #else
@@ -14,5 +14,6 @@
 #endif
 
 #define PRINTLN_INT(format) PRINTLNF("%d",format)
+#define PRINTLN_HEX(format) PRINTLNF("%x",format)
 #define PRINTLN_CHART(format) PRINTLNF("%c",format)
 #endif  //HELLOWORLDC_IO_UTILS_H

@@ -4,29 +4,29 @@
 #include <stdlib.h>
 
 /**
- * 猜数字游戏
+ * ?????????
  * @return
  */
 int main() {
 
-    //随机数
+    //?????
     srand(time(NULL));
     int ranndom = rand();
-    puts("猜个数");
+    puts("?????");
     while (true) {
         int user_input;
         scanf("%d", &user_input);
         if (user_input == ranndom) {
-            puts("猜对了");
+            puts("?????");
             break;
         } else if (user_input > ranndom) {
-            puts("大了");
+            puts("????");
         } else {
-            puts("小了");
+            puts("小??");
         }
     }
-    printf("%s\n", "输入任意字符退出");
+    printf("%s\n", "??????????????");
     scanf("%s");
-    exit(0);//等待终端输入任意字符
+    exit(0);//?????????????????
     return 0;
 }
