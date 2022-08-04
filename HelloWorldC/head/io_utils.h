@@ -15,5 +15,7 @@
 
 #define PRINTLN_INT(format) PRINTLNF("%d",format)
 #define PRINTLN_HEX(format) PRINTLNF("%x",format)
+#define PRINTLN_LONG(format) PRINTLNF("%ld",format)
+#define PRINTLN_LONG_LONG(format) PRINTLNF("%lld",format)
 #define PRINTLN_CHART(format) PRINTLNF("%c",format)
 #endif  //HELLOWORLDC_IO_UTILS_H

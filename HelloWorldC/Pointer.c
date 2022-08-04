@@ -21,7 +21,8 @@ void add2(int a, double b) {
 
 int (*f6)(int, double);
 
-int (*f5)[](int, double);
+//int (*f5)[](int, double);
+int (*f5[])(int, double);
 
 int main() {
     f5[1] = &add2;
