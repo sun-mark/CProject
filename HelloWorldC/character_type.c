@@ -16,6 +16,13 @@ int IsDigit(char c) {
 }
 
 int main() {
-    PRINTLN_INT(isdigit('9'));
+    //0表示不是数字 非0表示是数字
+    PRINTLN_INT(isdigit('0'));
+    PRINTLN_INT(isdigit(' '));
+    PRINTLN_INT(isdigit('a'));
+    PRINTLN_INT(isdigit('f'));
+    PRINTLN_INT(isdigit('1'));
+    PRINTLN_INT(isdigit(','));
+    PRINTLN_CHART(tolower('A'));
     return 0;
 }
