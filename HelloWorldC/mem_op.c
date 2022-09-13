@@ -20,6 +20,15 @@ int main() {
 //    PRINTLN_ARRAY(mem, 10);
     memcpy(mem, "abc", 2);
     puts(mem);
+    free(mem);
     PRINTLN_ARRAY(mem, 10);
+    char src[] = "HelloWorld";
+    char *dest = malloc(11);
+    memcpy(dest, src, 11);
+    puts(dest);
+    //内存重叠保证安全
+    memmove(dest + 3, dest + 1, 4);
+    puts(dest);
+    free(dest);
     return 0;
 }
