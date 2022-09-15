@@ -8,10 +8,6 @@
 #ifndef HELLOWORLDC_TIME_UTILS_H
 #define HELLOWORLDC_TIME_UTILS_H
 
-
-#include <sys/timeb.h>
-#include <time.h>
-
 #if defined(_WIN32)
 
 #include <sys/timeb.h>

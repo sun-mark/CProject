@@ -20,7 +20,7 @@ int main() {
     PRINTLN_INT(strlen(string));
     PRINTLN_INT(strlen(string2));
     PRINTLN_INT(strlen(string));
-    //安全版本不会无线数长度
+    //安全版本不会无限数长度
     PRINTLN_INT(strnlen_s(string, 9));//c11 msvc
     PRINTLN_INT(strnlen(string, 100));//gcc
     //字符串比较 -1表示param1不同的字符在前 1反之 0表示相同

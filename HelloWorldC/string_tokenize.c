@@ -1,10 +1,11 @@
 /**
- * ×Ö·û´®²ğ·Ö
+ * å­—ç¬¦ä¸²æ‹†åˆ†
 * Created by bo on 2022/9/12.
 */
 #include <string.h>
 #include <stdlib.h>
 #include "head/io_utils.h"
+
 #pragma pack(4)
 typedef struct {
     int year;
@@ -17,10 +18,10 @@ int main() {
     const char *filed_delimit = ",";
     int init_size = 3;
     int current_capacity = 0;
-    //·ÖÅäÄÚ´æ
+    //åˆ†é…å†…å­˜
     Language *languages = malloc(sizeof(Language) * init_size);
     if (!languages) {
-        //ÄÚ´æ·ÖÅäÊ§°Ü
+        //å†…å­˜åˆ†é…å¤±è´¥
         abort();
     }
     char *strtok_result = strtok(string, filed_delimit);
@@ -30,20 +31,20 @@ int main() {
         strtok_result = strtok(NULL, language_delimit);
         language.year = atoi(strtok_result);
         if (current_capacity + 1 >= init_size) {
-            //ÖØĞÂ·ÖÅäÄÚ´æ
+            //é‡æ–°åˆ†é…å†…å­˜
             init_size *= 2;
             languages = realloc(languages, sizeof(Language) * init_size);
             if (!languages) {
-                //·ÖÅäÊ§°Ü
+                //åˆ†é…å¤±è´¥
                 abort();
             }
         }
         languages[current_capacity++] = language;
         strtok_result = strtok(NULL, filed_delimit);
     }
-    PRINTLNF("½âÎö¸öÊı£º%d", current_capacity);
-    PRINTLNF("·ÖÅäÄÚ´æµÄ´óĞ¡£º%d", init_size * sizeof(Language));
-    PRINTLNF("Language´óĞ¡£º%d", sizeof(Language));
+    PRINTLNF("è§£æä¸ªæ•°ï¼š%d", current_capacity);
+    PRINTLNF("åˆ†é…å†…å­˜çš„å¤§å°ï¼š%d", init_size * sizeof(Language));
+    PRINTLNF("Languageå¤§å°ï¼š%d", sizeof(Language));
     for (int i = 0; i < current_capacity; ++i) {
         PRINTLNF("Language[name=%s, year=%d]", languages[i].name, languages[i].year);
     }
