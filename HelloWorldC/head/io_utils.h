@@ -19,7 +19,7 @@
 #define PRINTLN_LONG(format) PRINTLNF("%ld",format)
 #define PRINTLN_LONG_LONG(format) PRINTLNF("%lld",format)
 #define PRINTLN_CHART(format) PRINTLNF("%c",format)
-#define PRINTLN_ARRAY(array,length)  do  \
+#define PRINTLN_ARRAY(array, length)  do  \
     { \
         for(int i = 0;i<length;i++) \
         { \

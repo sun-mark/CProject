@@ -22,6 +22,6 @@ int main() {
     DoHardWork();
     time_t end_time = time(NULL);
     PRINTLN_INT(end_time - start_time);
-    
+
     return 0;
 }
