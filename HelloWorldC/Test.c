@@ -4,12 +4,11 @@
 #include <stdlib.h>
 
 /**
- * ?????????
+ * 猜数字游戏
  * @return
  */
-int main() {
 
-    //?????
+int main() {
     srand(time(NULL));
     int ranndom = rand();
     puts("输入数字");
