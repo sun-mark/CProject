@@ -4,4 +4,5 @@
 /HelloWorldC/cmake-build-debug-mingw-90/*
 /HelloWorldC/cmake-build-debug-vs-160/*
 /HelloWorldC/cmake-build-debug-visual-studio
+/HelloWorldC/*cmake*/
 *.exe

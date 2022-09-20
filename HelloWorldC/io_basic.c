@@ -24,8 +24,8 @@ int main() {
     }
     fclose(file);
     //其他定义的io stream
-    //stdout
-    //stderr
-    //stdin
+    //stdout 标准输出流
+    //stderr 标准错误流
+    //stdin  标准输入流
     return 0;
 }
