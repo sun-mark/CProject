@@ -12,5 +12,7 @@ int main() {
     PRINTLNF("现在的时间戳:%ld", current_time);
     time_t time1 = time(NULL);
     PRINTLNF("现在的时间戳:%ld", time1);
+    long_time_t current_time1 = getMillisecond();
+    PRINTLNF("从time_utils head file中获取的时间戳单位毫秒:%lld", current_time1);
     return 0;
 }
