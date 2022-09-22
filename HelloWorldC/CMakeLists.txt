@@ -5,8 +5,27 @@ project(${ProjectId} C)
 
 set(CMAKE_C_STANDARD 11)
 
-file(GLOB files "${CMAKE_CURRENT_SOURCE_DIR}/*.C")
-FOREACH (file ${files})
-    get_filename_component(name ${file} NAME)
-    add_executable(${name} ${file})
-ENDFOREACH ()
+#file(GLOB files "${CMAKE_CURRENT_SOURCE_DIR}/*.C")
+#FOREACH (file ${files})
+#    get_filename_component(name ${file} NAME)
+#    add_executable(${name} ${file})
+#ENDFOREACH ()
+# 遍历项目根目录下所有的 .c 文件
+file(GLOB_RECURSE files *.c)
+foreach (file ${files})
+    string(REGEX REPLACE ".+/(.+)\\..*" "\\1" exe ${file})
+#    message(------------ 文件: ${file})
+    if (${file} MATCHES cmake-build-debug)
+        CONTINUE()
+    endif ()
+    # 源文件名称中包含[.c]的文件
+    if (${file} MATCHES .c)
+        add_executable(${exe} ${file})
+        message(------------ 添加文件: ${file})
+        continue()
+    endif ()
+    message(************ 跳过文件: ${file})
+endforeach ()
+
+# 需要多个文件合作生成一个可执行文件,需要自己添加
+#add_executable(extern1 02_keyword/extern1.c 02_keyword/extern2.c)
