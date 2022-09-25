@@ -3,6 +3,7 @@
 //
 #include <stdio.h>
 #include <stdarg.h>
+#include <string.h>
 
 #ifndef HELLOWORLDC_IO_UTILS_H
 #define HELLOWORLDC_IO_UTILS_H
@@ -27,4 +28,11 @@
         } \
     \
     }while(0)
+#define PRINT_IF_ERROR(format, ...) \
+if(erron != 0){\
+    fprintf(stderr, format, ##__VA_ARGS__ ); \
+    fprintf(stderr, ":%s\n",strerror(errno)) ; \
+}
 #endif  //HELLOWORLDC_IO_UTILS_H
+
+

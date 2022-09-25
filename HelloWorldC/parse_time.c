@@ -10,6 +10,7 @@
 #include <stdio.h>
 
 int main() {
+    clock_t startClock = clock();
     time_t current_time = time(NULL);
     struct tm *calendar_time = localtime(&current_time);
     PRINTLN_INT(calendar_time->tm_sec);
@@ -46,7 +47,7 @@ int main() {
     parsed_time.tm_year -= 1900;
     parsed_time.tm_mon -= 1;
     PRINTLN_INT(sscanf1);
-    //尽量是时间符合规范
+    //尽量使时间符合规范
     mktime(calendar_time);
     PRINTLNF(".............");
     PRINTLN_INT(parsed_time.tm_sec);
@@ -55,5 +56,6 @@ int main() {
     PRINTLN_INT(parsed_time.tm_mday);
     PRINTLN_INT(parsed_time.tm_mon);
     PRINTLN_INT(parsed_time.tm_year);
+    PRINTLN_DOUBLE(((double) (clock() - startClock)) / CLOCKS_PER_SEC);
     return 0;
 }

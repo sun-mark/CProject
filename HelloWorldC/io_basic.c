@@ -17,7 +17,7 @@ int main() {
         //出现错误
         int error_code = ferror(file);
         perror(strerror(error_code));
-        //判断文件是否结束 如果结束返还非0的值反之返回0
+        //判断文件是否结束 如果结束返还非0的值 反之返回0
         int eof = feof(file);
         PRINTLN_INT(eof);
 
