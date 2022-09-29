@@ -7,7 +7,13 @@
 #include "head/io_utils.h"
 #include <sys/stat.h>
 #include <dirent.h>
+#if defined(__APPLE__) || defined(__liunx__)
+#   include <unistd.h>
+#elif defined(_WIN32)
 
+#   include <io.h>
+
+#endif
 //看文件大小
 long long GetFileSize(char const *filename) {
     struct _stat64 st;
@@ -22,19 +28,7 @@ int IsDirectory(char const *filename) {
     return st.st_mode & S_IFDIR;
 }
 
-//获取目录大小
-long long getDirectorySize(char const *directory_name) {
-    long long size = 0;
-    if (IsDirectory(directory_name) == 0) {
-        size += GetFileSize(directory_name);
-    } else {
-        DIR *dir = opendir(directory_name);
-        struct dirent *d = readdir(dir);
-        char dir_pathname[512] = {0};
-        sprintf(dir_pathname, "%s/%s", directory_name, d->d_name);
-        getDirectorySize(dir_pathname);
-    }
-}
+
 
 
 int main() {
