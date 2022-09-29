@@ -4,7 +4,8 @@ STRING(REPLACE "" "_" ProjectId ${ProjectId})
 project(${ProjectId} C)
 
 set(CMAKE_C_STANDARD 11)
-
+include_directories("include")
+include_directories("tinycthread/include")
 #file(GLOB files "${CMAKE_CURRENT_SOURCE_DIR}/*.C")
 #FOREACH (file ${files})
 #    get_filename_component(name ${file} NAME)
