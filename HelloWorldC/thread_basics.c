@@ -4,6 +4,7 @@
 */
 
 
+#include "head/tinycthread.h"
 
 int main() {
     return 0;
