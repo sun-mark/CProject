@@ -7,20 +7,19 @@
 #include "head/io_utils.h"
 
 int main() {
-    FILE *file = feof(stdout);
     CURL *curl = curl_easy_init();
-    struct curl_slist *headers = CURL_FORMADD_NULL;
+    struct curl_slist *headers = NULL;
     headers = curl_slist_append(headers,
-                                "Content-Type: application/json");
+                                "User-Agent:Awesome-Octocat-App");
     curl_easy_setopt(curl, CURLOPT_HTTPHEADER, headers);
-    curl_easy_setopt(curl, CURLOPT_URL, "www.baidu.com");
+    curl_easy_setopt(curl, CURLOPT_URL, "http://www.baidu.com/");
     curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, fwrite);
-    curl_easy_setopt(curl, CURLOPT_WRITEDATA, file);
+    curl_easy_setopt(curl, CURLOPT_WRITEDATA, stdout);
     CURLcode response = curl_easy_perform(curl);
     PRINTLN_INT(response);
     curl_slist_free_all(headers);
     curl_easy_cleanup(curl);
-    fflush(file);
-    fclose(file);
+    fflush(stdout);
+    fclose(stdout);
     return 0;
 }
