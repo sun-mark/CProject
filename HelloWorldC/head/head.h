@@ -6,4 +6,4 @@
 #define HELLOWORLDC_HEAD_HEAD_H_
 unsigned int Factorial(unsigned int n);
 unsigned int FactorialByIteration(unsigned int n);
-#endif; //HELLOWORLDC_HEAD_HEAD_H_
+#endif //HELLOWORLDC_HEAD_HEAD_H_

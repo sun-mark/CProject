@@ -11,8 +11,10 @@ file(GLOB files "${CMAKE_CURRENT_SOURCE_DIR}/*.C")
 #    get_filename_component(name ${file} NAME)
 #    add_executable(${name} ${file} include/tinycthread.c)
 #ENDFOREACH ()
-
-
+if (UNIX OR Linux)
+include(${CMAKE_BINARY_DIR}/conanbuildinfo.cmake)
+conan_basic_setup()
+ENDIF()
 # 遍历项目根目录下所有的 .c 文件
 file(GLOB_RECURSE files *.c)
 foreach (file ${files})
@@ -27,7 +29,9 @@ foreach (file ${files})
         add_executable(${exe} ${file} include/tinycthread.c)
         message(------------ 添加文件: ${file})
         if (UNIX OR Linux)
-            target_link_libraries(${exe} pthread)
+            target_link_libraries(${exe}
+                    pthread
+                    ${CONAN_LIBS})
         endif ()
         continue()
     endif ()
