@@ -1,4 +1,4 @@
-/HelloWorldC/.idea/*
+**/.idea/
 /HelloWorldC/cmake-build-debug/*
 /HelloWorldC/cmake-build-debug-mingw/*
 /HelloWorldC/cmake-build-debug-mingw-90/*
