@@ -1,0 +1,6 @@
+E:\CLion.2022.1.3\bin\cmake\win\bin\cmake.exe -DCMAKE_BUILD_TYPE=Debug -DCMAKE_MAKE_PROGRAM=E:/CLion.2022.1.3/bin/ninja/win/ninja.exe -G Ninja -S E:\CProject\GUI -B E:\CProject\GUI\cmake-build-debug-mingw-w64-90
+------------添加文件:E:/CProject/GUI/GTK_hello_word.c
+------------添加文件:E:/CProject/GUI/include/tinycthread.c
+-- Configuring done
+-- Generating done
+-- Build files have been written to: E:/CProject/GUI/cmake-build-debug-mingw-w64-90

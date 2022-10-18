@@ -1,0 +1,6 @@
+# ninja log v5
+1	102	6877978819646272	CMakeFiles/main.dir/main.c.obj	134d351ea5870489
+6	910	6877978827728146	CMakeFiles/main.dir/include/tinycthread.c.obj	93f68992cd753516
+912	1052	6877978829100341	main.exe	cec004814f9ebc4e
+4	604	6877992910657108	CMakeFiles/GTK_hello_word.dir/GTK_hello_word.c.obj	9090e705953617e5
+1	885	6877992913464701	CMakeFiles/GTK_hello_word.dir/include/tinycthread.c.obj	eea8432a4e98d04a

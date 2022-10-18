@@ -1,0 +1,4 @@
+E:/CProject/GUI/cmake-build-debug/CMakeFiles/tinycthread.dir
+E:/CProject/GUI/cmake-build-debug/CMakeFiles/main.dir
+E:/CProject/GUI/cmake-build-debug/CMakeFiles/edit_cache.dir
+E:/CProject/GUI/cmake-build-debug/CMakeFiles/rebuild_cache.dir
