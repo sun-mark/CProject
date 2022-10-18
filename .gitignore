@@ -1,8 +1,3 @@
 **/.idea/
-/HelloWorldC/cmake-build-debug/*
-/HelloWorldC/cmake-build-debug-mingw/*
-/HelloWorldC/cmake-build-debug-mingw-90/*
-/HelloWorldC/cmake-build-debug-vs-160/*
-/HelloWorldC/cmake-build-debug-visual-studio
-/HelloWorldC/*cmake*/
+**/cmake-build-debug/
 *.exe

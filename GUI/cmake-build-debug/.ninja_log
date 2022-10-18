@@ -1,5 +1,0 @@
-# ninja log v5
-0	114	6877964743191379	CMakeFiles/main.dir/main.c.obj	3ea4b45df1159823
-3	810	6877964750157315	CMakeFiles/main.dir/include/tinycthread.c.obj	6ae745fabda9853b
-812	929	6877964751304259	main.exe	eb5b8f27b7aeec45
-0	663	6877964948790062	CMakeFiles/tinycthread.dir/include/tinycthread.c.obj	db3f3da2d672480d

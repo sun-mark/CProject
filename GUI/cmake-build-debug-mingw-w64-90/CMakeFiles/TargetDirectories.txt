@@ -1,4 +1,0 @@
-E:/CProject/GUI/cmake-build-debug-mingw-w64-90/CMakeFiles/GTK_hello_word.dir
-E:/CProject/GUI/cmake-build-debug-mingw-w64-90/CMakeFiles/tinycthread.dir
-E:/CProject/GUI/cmake-build-debug-mingw-w64-90/CMakeFiles/edit_cache.dir
-E:/CProject/GUI/cmake-build-debug-mingw-w64-90/CMakeFiles/rebuild_cache.dir
