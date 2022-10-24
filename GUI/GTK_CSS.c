@@ -26,7 +26,7 @@ int main(int argc, char **argv) {
         return -1;
     }
     GObject *window = gtk_builder_get_object(builder, "window");
-    gtk_style_context_add_provider_for_screen(gdk_window_get_screen(GTK_WINDOW(window)),
+    gtk_style_context_add_provider_for_screen(gtk_window_get_screen(GTK_WINDOW(window)),
                                               (GtkStyleProvider *) css_provider,
                                               GTK_STYLE_PROVIDER_PRIORITY_USER);
     g_signal_connect(window, "destroy", G_CALLBACK(gtk_main_quit), NULL);

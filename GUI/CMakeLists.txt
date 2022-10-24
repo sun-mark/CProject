@@ -17,7 +17,7 @@ find_package(PkgConfig REQUIRED)
 pkg_check_modules(GTK3 REQUIRED gtk+-3.0)
 INCLUDE_DIRECTORIES(${GTK3_INCLUDE_DIRS})
 LINK_DIRECTORIES(${GTK3_CFLAGS_OTHER})
-
+set(CMAKE_C_FLAGS_RELEASE -mwindows)
 if (UNIX OR Linux)
     include(${CMAKE_BINARY_DIR}/conanbuildinfo.cmake)
     conan_basic_setup()
