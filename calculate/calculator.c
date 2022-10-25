@@ -4,12 +4,14 @@
 
 #include "calculator.h"
 #include "operation.h"
+#include "console_ui.h"
 #include <stdlib.h>
 #include <string.h>
 
 int HandleInput(CalcContext *context, char input_value) {
     if (context->display_text) {
-        context->display_text(&input_value);
+        char c[2] = {[0]=input_value};
+        context->display_text(c);
     }
 
     return 1;
@@ -39,6 +41,3 @@ void DestroyCalcContext(CalcContext **p_context) {
     *p_context = NULL;
 }
 
-int main() {
-    return 0;
-}

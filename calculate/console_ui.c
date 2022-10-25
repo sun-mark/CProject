@@ -26,7 +26,7 @@ static void InitConsole() {
     ui_context = malloc(sizeof(ui_context));
     ui_context->text_displayer = stdout;
     ui_context->context = CreateCalcContext();
-    ui_context->context->display_text = DisplayTextWithFile;
+    ui_context->context->display_text = (void (*)(char *)) DisplayTextWithFile;
 }
 
 static void DestroyConsole() {
@@ -41,7 +41,3 @@ int RunConsoleUi(int argc, char *argv[]) {
     DestroyConsole();
 }
 
-int main() {
-
-    return 0;
-}

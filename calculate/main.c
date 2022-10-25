@@ -7,6 +7,5 @@
 #include <stdio.h>
 
 int main(int argc, char *argv[]) {
-    RunConsoleUi(argc, argv);
-    return 0;
+    return RunConsoleUi(argc, argv);
 }

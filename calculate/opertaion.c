@@ -35,7 +35,3 @@ double Divide(double left, double right) {
     }
 }
 
-int main(int argc, char *argv[]) {
-    RunConsoleUi(argc, argv);
-    return 0;
-}
