@@ -7,9 +7,12 @@
 #include "console_ui.h"
 #include <stdlib.h>
 #include <string.h>
+#include <stdio.h>
 
 static void ClearBuffer(CalcContext *context) {
-    context->input_buffer[0] = 0;
+    for (int i = 0; i < MAX_CHAR; ++i) {
+        context->input_buffer[i] = 0;
+    }
     context->input_buffer_position = 0;
 }
 
@@ -20,6 +23,18 @@ static void ClearAll(CalcContext *context) {
     memset(&context->current_operation, 0, sizeof(Operation));
 }
 
+static void FormatOutput(CalcContext *context) {
+    if (context->result == -0.0) {
+        context->result = 0.0;
+    }
+    sprintf(context->input_buffer, "%.6g", context->result);
+}
+
+static void DisplayOutput(CalcContext *context) {
+    FormatOutput(context);
+    context->display_text(context->input_buffer);
+    ClearBuffer(context);
+}
 
 static void FormatInput(CalcContext *context) {
     if (context->input_buffer_position == 0) {
@@ -65,12 +80,22 @@ static void ApplyInput(CalcContext *context, double *operand) {
     }
 }
 
-static void ApplyInputToleft(CalcContext *context) {
+static void ApplyInputToLeft(CalcContext *context) {
     ApplyInput(context, &context->current_operation.left);
 }
 
 static void ApplyInputToRight(CalcContext *context) {
     ApplyInput(context, &context->current_operation.right);
+}
+
+static void ApplyCurrentOperation(CalcContext *context) {
+    context->result = OperationApply(&context->current_operation);
+    memcpy(&context->previous_operation, &context->current_operation, sizeof(Operation));
+    memset(&context->current_operation, 0, sizeof(Operation));
+}
+
+static void ApplyPreviousOperation(CalcContext *context) {
+    context->result = OperationApply(&context->previous_operation);
 }
 
 int HandleInput(CalcContext *context, char input_value) {
@@ -95,36 +120,61 @@ int HandleInput(CalcContext *context, char input_value) {
             break;
         case '+':
             context->current_operation.operator = Plus;
-            ApplyInputToleft(context);
+            ApplyInputToLeft(context);
             break;
         case '-':
             context->current_operation.operator = Minus;
-            ApplyInputToleft(context);
+            ApplyInputToLeft(context);
             break;
         case '*':
             context->current_operation.operator = Multiply;
-            ApplyInputToleft(context);
+            ApplyInputToLeft(context);
             break;
         case '/':
             context->current_operation.operator = Divide;
-            ApplyInputToleft(context);
+            ApplyInputToLeft(context);
             break;
         case '=':
+            if (context->current_operation.operator) {
+                ApplyInputToRight(context);
+                ApplyCurrentOperation(context);
+                DisplayOutput(context);
+            } else if (context->previous_operation.operator) {
+                context->previous_operation.left = context->result;
+                ApplyPreviousOperation(context);
+                DisplayOutput(context);
+            } else {
+                printf("No operation\n");
+            }
             break;
         case '%':
+            ApplyInputToLeft(context);
+            context->current_operation.operator = Multiply;
+            context->current_operation.right = 0.01;
+            DisplayInput(context);
+            ApplyCurrentOperation(context);
+            DisplayOutput(context);
             break;
         case 'S':
+        case 's':
+            ApplyInputToLeft(context);
+            context->current_operation.operator = Multiply;
+            context->current_operation.right = -1;
+            ApplyCurrentOperation(context);
+            DisplayOutput(context);
             break;
         case 'c':
+        case 'C':
             ClearAll(context);
             DisplayInput(context);
             break;
+        case '\n':
+            break;
+        default:
+            printf("非法数字\n");
+            fflush(stdout);
+            break;
     }
-    if (context->display_text) {
-        char c[2] = {[0]=input_value};
-        context->display_text(c);
-    }
-
     return 1;
 }
 
