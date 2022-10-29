@@ -65,13 +65,20 @@ void unimplemented(int);
  * Parameters: the socket connected to the client */
 /**********************************************************************/
 void accept_request(void *arg) {
+    //client
     int client = (intptr_t) arg;
+    //保存数据的缓冲区
     char buf[1024];
     size_t numchars;
+    //方法
     char method[255];
+    //url
     char url[255];
+    //服务器要用到的路径具体在htdocs里面
     char path[512];
+    //get_line函数将原来以\n和\r\n结束的转换为以\n再加\0字符结束
     size_t i, j;
+    //文件状态描述
     struct stat st;
     int cgi = 0;      /* becomes true if server decides this is a CGI
                        * program */
@@ -87,12 +94,14 @@ void accept_request(void *arg) {
     j = i;
     method[i] = '\0';
 
+    //只能处理get post method
     if (strcasecmp(method, "GET") && strcasecmp(method, "POST")) {
         unimplemented(client);
         return;
     }
 
     if (strcasecmp(method, "POST") == 0)
+        //cgi 程序
         cgi = 1;
 
     i = 0;
@@ -119,20 +128,26 @@ void accept_request(void *arg) {
     sprintf(path, "htdocs%s", url);
     if (path[strlen(path) - 1] == '/')
         strcat(path, "index.html");
+    //找到服务器资源 stat表示文件状态
     if (stat(path, &st) == -1) {
         while ((numchars > 0) && strcmp("\n", buf))  /* read & discard headers */
             numchars = get_line(client, buf, sizeof(buf));
         not_found(client);
     } else {
+        //是否是文件夹
         if ((st.st_mode & S_IFMT) == S_IFDIR)
             strcat(path, "/index.html");
+        //文件所有者或文件所属组或其他人 具有可执行权限
         if ((st.st_mode & S_IXUSR) ||
             (st.st_mode & S_IXGRP) ||
             (st.st_mode & S_IXOTH))
             cgi = 1;
         if (!cgi)
+            //执行这一步代表这个文件存在，但是不能执行
+            //于是就换成读取文件内容再发送
             serve_file(client, path);
         else
+            //cgi 程序
             execute_cgi(client, path, method, query_string);
     }
 
@@ -167,9 +182,10 @@ void bad_request(int client) {
 /**********************************************************************/
 void cat(int client, FILE *resource) {
     char buf[1024];
-
+    //读取文件
     fgets(buf, sizeof(buf), resource);
     while (!feof(resource)) {
+        //发送客户端
         send(client, buf, strlen(buf), 0);
         fgets(buf, sizeof(buf), resource);
     }
@@ -251,7 +267,7 @@ void execute_cgi(int client, const char *path,
         cannot_execute(client);
         return;
     }
-
+    //fork子进程
     if ((pid = fork()) < 0) {
         cannot_execute(client);
         return;
@@ -278,6 +294,7 @@ void execute_cgi(int client, const char *path,
             putenv(length_env);
         }
         execl(path, query_string, NULL);
+        //进程退出
         exit(0);
     } else {    /* parent */
         close(cgi_output[1]);
@@ -292,6 +309,7 @@ void execute_cgi(int client, const char *path,
 
         close(cgi_output[0]);
         close(cgi_input[1]);
+        //等待子进程结束或者信号到来
         waitpid(pid, &status, 0);
     }
 }
@@ -420,26 +438,32 @@ int startup(u_short *port) {
     int httpd = 0;
     int on = 1;
     struct sockaddr_in name;
-
+    //protocol=0 自动选一个套接字
     httpd = socket(PF_INET, SOCK_STREAM, 0);
     if (httpd == -1)
+        //-1创建失败
         error_die("socket");
     memset(&name, 0, sizeof(name));
+    //IP protocol family.
     name.sin_family = AF_INET;
     name.sin_port = htons(*port);
+    //INADDR_ANY 0.0.0.0地址
     name.sin_addr.s_addr = htonl(INADDR_ANY);
     if ((setsockopt(httpd, SOL_SOCKET, SO_REUSEADDR, &on, sizeof(on))) < 0) {
         error_die("setsockopt failed");
     }
+    //bind 地址 端口号
     if (bind(httpd, (struct sockaddr *) &name, sizeof(name)) < 0)
         error_die("bind");
     if (*port == 0)  /* if dynamically allocating a port */
     {
+        //port=0 随机一个端口号
         socklen_t namelen = sizeof(name);
         if (getsockname(httpd, (struct sockaddr *) &name, &namelen) == -1)
             error_die("getsockname");
         *port = ntohs(name.sin_port);
     }
+    //监听状态 超过@parm n 报错WSAECONNREFUSED。
     if (listen(httpd, 5) < 0)
         error_die("listen");
     return (httpd);
@@ -474,28 +498,38 @@ void unimplemented(int client) {
 /**********************************************************************/
 
 int main(void) {
+    //服务器socket
     int server_sock = -1;
+    //端口号
     u_short port = 28080;
+    //客户端socket
     int client_sock = -1;
+    //客户端地址
     struct sockaddr_in client_name;
+    //和int一样的长度不破坏bsd的填充
     socklen_t client_name_len = sizeof(client_name);
+    //创建的新的线程
     pthread_t newthread;
-
+    //初始化 启动server_socket @parm port =0就随机一个端口号
     server_sock = startup(&port);
     printf("httpd running on port %d\n", port);
     fflush(stdout);
+    //死循环监听client
     while (1) {
+        //阻塞监听
         client_sock = accept(server_sock,
                              (struct sockaddr *) &client_name,
                              &client_name_len);
         if (client_sock == -1)
+            //报错处理
             error_die("accept");
 //        accept_request(&client_sock);
-
+//      处理client request
+//      c10k问题 作者1999年写的当时应该没有这个问题
         if (pthread_create(&newthread, NULL, (void *) accept_request, (void *) (intptr_t) client_sock) != 0)
             perror("pthread_create");
     }
-
+    //关闭服务器
     close(server_sock);
 
     return (0);
