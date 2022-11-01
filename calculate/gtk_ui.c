@@ -1,5 +1,5 @@
 //
-// Created by Administrator on 2022/11/1 0001.
+// 0Created by Administrator on 2022/11/1 0001.
 //
 #include "gtk_ui.h"
 #include <stdio.h>
@@ -10,6 +10,8 @@ static UiContext *ui_context;
 
 static void DisplayTextWithFileGTKLable(char *text) {
     gtk_label_set_text(ui_context->text_displayer, text);
+
+
 }
 
 static void OnInputButtonClicked(void *widget, void *data) {
@@ -26,7 +28,7 @@ static void GTKMain(int argc, char *argv[]) {
         return;
     }
     GtkBuilder *gtkBuilder = gtk_builder_new();
-    if (gtk_builder_add_from_file(gtkBuilder, "ui/calculatior.xml", gError) == 0) {
+    if (gtk_builder_add_from_file(gtkBuilder, "../ui/calculatior.xml", &gError) == 0) {
         g_printerr("Error loading ui xml file :%s\n", gError->message);
         g_clear_error(&gError);
         return;
