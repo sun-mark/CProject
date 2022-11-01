@@ -22,9 +22,17 @@ static void ConsoleMain() {
     puts("Thank you");
 }
 
-static void InitConsole() {
+static void InitConsole(int argc, char *argv[]) {
     ui_context = malloc(sizeof(ui_context));
-    ui_context->text_displayer = stdout;
+    switch (argc) {
+        case 1:
+            ui_context->text_displayer = stdout;
+            break;
+        default:
+            perror("未选择输出模式");
+            exit(-1);
+    }
+
     ui_context->context = CreateCalcContext();
     ui_context->context->display_text = (void (*)(char *)) DisplayTextWithFile;
 }
@@ -36,7 +44,7 @@ static void DestroyConsole() {
 }
 
 int RunConsoleUi(int argc, char *argv[]) {
-    InitConsole();
+    InitConsole(argc, argv);
     ConsoleMain();
     DestroyConsole();
 }

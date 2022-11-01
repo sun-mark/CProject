@@ -8,6 +8,7 @@
 #include "calculator.h"
 
 typedef struct {
+    //计算器缓存的值
     void *text_displayer;
     CalcContext *context;
 } UiContext;
