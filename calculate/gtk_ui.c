@@ -19,6 +19,7 @@ static void OnInputButtonClicked(void *widget, void *data) {
 }
 
 static void GTKMain(int argc, char *argv[]) {
+
     GError *gError = NULL;
     gtk_init(&argc, &argv);
     GtkCssProvider *gtkCssProvider = gtk_css_provider_new();
@@ -28,7 +29,7 @@ static void GTKMain(int argc, char *argv[]) {
         return;
     }
     GtkBuilder *gtkBuilder = gtk_builder_new();
-    if (gtk_builder_add_from_file(gtkBuilder, "../ui/calculatior.xml", &gError) == 0) {
+    if (gtk_builder_add_from_file(gtkBuilder, "../ui/builder.ui2.xml", &gError) == 0) {
         g_printerr("Error loading ui xml file :%s\n", gError->message);
         g_clear_error(&gError);
         return;
@@ -38,7 +39,7 @@ static void GTKMain(int argc, char *argv[]) {
                                               (GtkStyleProvider *) gtkCssProvider,
                                               GTK_STYLE_PROVIDER_PRIORITY_USER);
     g_signal_connect(window, "destroy", G_CALLBACK(gtk_main_quit), NULL);
-    ui_context->text_displayer = gtk_builder_get_object(gtkBuilder, "result_show");
+    ui_context->text_displayer = (GtkLabel *) gtk_builder_get_object(gtkBuilder, "result_show");
     GtkButton *button_input_0 = (GtkButton *) gtk_builder_get_object(gtkBuilder, "input_0");
     g_signal_connect(button_input_0, "clicked", G_CALLBACK(OnInputButtonClicked), "0");
     HandleInput(ui_context->context, '0');
@@ -62,6 +63,6 @@ static void DestroyConsole() {
 
 int RunGtkUi(int argc, char *argv[]) {
     InitConsole(argc, argv);
-    GTKMain(argc, argv);
+    GTKMain(0, NULL);
     DestroyConsole();
 }
