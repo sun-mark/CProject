@@ -1,0 +1,13 @@
+button {
+    background: none;
+    border: solid 2px black;
+}
+
+.button_class {
+    background: none;
+    border: solid 1px greenyellow;
+}
+#quit{
+    background: none;
+    border: solid 1px red;
+}

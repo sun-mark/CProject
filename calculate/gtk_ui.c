@@ -21,31 +21,31 @@ static void OnInputButtonClicked(void *widget, void *data) {
 static void GTKMain(int argc, char *argv[]) {
     GError *gError = NULL;
     gtk_init(&argc, &argv);
-//    GtkCssProvider *gtkCssProvider = gtk_css_provider_new();
-//    if (gtk_css_provider_load_from_path(gtkCssProvider, "../ui/style.css", &gError) == 0) {
-//        g_printerr("Error loading css file :%s\n", gError->message);
-//        g_clear_error(&gError);
-//        return;
-//    }
+    GtkCssProvider *gtkCssProvider = gtk_css_provider_new();
+    if (gtk_css_provider_load_from_path(gtkCssProvider, "../ui/style.css", &gError) == 0) {
+        g_printerr("Error loading css file :%s\n", gError->message);
+        g_clear_error(&gError);
+        return;
+    }
     GtkBuilder *gtkBuilder = gtk_builder_new();
     if (gtk_builder_add_from_file(gtkBuilder, "../ui/calculatior.xml", &gError) == 0) {
         g_printerr("Error loading ui xml file :%s\n", gError->message);
         g_clear_error(&gError);
         return;
     }
-//    GtkWindow *window = (GtkWindow *) gtk_builder_get_object(gtkBuilder, "window");
-//    gtk_style_context_add_provider_for_screen(gtk_window_get_screen(window),
-//                                              (GtkStyleProvider *) gtkCssProvider,
-//                                              GTK_STYLE_PROVIDER_PRIORITY_USER);
-//    g_signal_connect(window, "destroy", G_CALLBACK(gtk_main_quit), NULL);
-//    ui_context->text_displayer = gtk_builder_get_object(gtkBuilder, "result_show");
-//    GtkButton *button_input_0 = (GtkButton *) gtk_builder_get_object(gtkBuilder, "input_0");
-//    g_signal_connect(button_input_0, "clicked", G_CALLBACK(OnInputButtonClicked), "0");
-//    HandleInput(ui_context->context, '0');
+    GtkWindow *window = (GtkWindow *) gtk_builder_get_object(gtkBuilder, "window");
+    gtk_style_context_add_provider_for_screen(gtk_window_get_screen(GTK_WINDOW(window)),
+                                              (GtkStyleProvider *) gtkCssProvider,
+                                              GTK_STYLE_PROVIDER_PRIORITY_USER);
+    g_signal_connect(window, "destroy", G_CALLBACK(gtk_main_quit), NULL);
+    ui_context->text_displayer = gtk_builder_get_object(gtkBuilder, "result_show");
+    GtkButton *button_input_0 = (GtkButton *) gtk_builder_get_object(gtkBuilder, "input_0");
+    g_signal_connect(button_input_0, "clicked", G_CALLBACK(OnInputButtonClicked), "0");
+    HandleInput(ui_context->context, '0');
     gtk_main();
-//    g_object_unref(gtkBuilder);
-//    gtk_style_context_remove_provider_for_screen(gtk_window_get_screen(window), gtkCssProvider);
-//    g_object_unref(gtkCssProvider);
+    g_object_unref(gtkBuilder);
+    gtk_style_context_remove_provider_for_screen(gtk_window_get_screen(window), (GtkStyleProvider *) gtkCssProvider);
+    g_object_unref(gtkCssProvider);
 }
 
 static void InitConsole(int argc, char *argv[]) {
