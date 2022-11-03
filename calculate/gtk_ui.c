@@ -29,7 +29,7 @@ static void GTKMain(int argc, char *argv[]) {
         return;
     }
     GtkBuilder *gtkBuilder = gtk_builder_new();
-    if (gtk_builder_add_from_file(gtkBuilder, "../ui/builder.ui2.xml", &gError) == 0) {
+    if (gtk_builder_add_from_file(gtkBuilder, "E:\\CProject\\calculate\\ui\\calculator.xml", &gError) == 0) {
         g_printerr("Error loading ui xml file :%s\n", gError->message);
         g_clear_error(&gError);
         return;
@@ -50,7 +50,7 @@ static void GTKMain(int argc, char *argv[]) {
 }
 
 static void InitConsole(int argc, char *argv[]) {
-    ui_context = malloc(sizeof(ui_context));
+    ui_context = malloc(sizeof(&ui_context));
     ui_context->context = CreateCalcContext();
     ui_context->context->display_text = (void (*)(char *)) DisplayTextWithFileGTKLabel;
 }
@@ -63,6 +63,7 @@ static void DestroyConsole() {
 
 int RunGtkUi(int argc, char *argv[]) {
     InitConsole(argc, argv);
-    GTKMain(0, NULL);
+    GTKMain(argc, argv);
     DestroyConsole();
+    return 0;
 }
