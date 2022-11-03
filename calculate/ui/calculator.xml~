@@ -13,7 +13,7 @@
     <property name="default-width">500</property>
     <property name="default-height">700</property>
     <child>
-      <object class="GtkBox">
+      <object class="GtkBox" id="result_show">
         <property name="width-request">400</property>
         <property name="height-request">700</property>
         <property name="visible">True</property>
