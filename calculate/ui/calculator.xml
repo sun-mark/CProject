@@ -13,7 +13,7 @@
     <property name="default-width">500</property>
     <property name="default-height">700</property>
     <child>
-      <object class="GtkBox" id="result_show">
+      <object class="GtkBox" id="root">
         <property name="width-request">400</property>
         <property name="height-request">700</property>
         <property name="visible">True</property>
@@ -24,6 +24,8 @@
           <object class="GtkLabel" id="show_result">
             <property name="visible">True</property>
             <property name="can-focus">False</property>
+            <property name="hexpand">True</property>
+            <property name="vexpand">True</property>
             <property name="label" translatable="yes">label</property>
           </object>
           <packing>
@@ -33,10 +35,10 @@
           </packing>
         </child>
         <child>
-          <!-- n-columns=4 n-rows=4 -->
+          <!-- n-columns=4 n-rows=5 -->
           <object class="GtkGrid">
             <property name="width-request">400</property>
-            <property name="height-request">500</property>
+            <property name="height-request">600</property>
             <property name="visible">True</property>
             <property name="can-focus">False</property>
             <child>
@@ -248,24 +250,9 @@
                 <property name="top-attach">2</property>
               </packing>
             </child>
-          </object>
-          <packing>
-            <property name="expand">False</property>
-            <property name="fill">True</property>
-            <property name="position">1</property>
-          </packing>
-        </child>
-        <child>
-          <object class="GtkBox">
-            <property name="width-request">400</property>
-            <property name="height-request">100</property>
-            <property name="visible">True</property>
-            <property name="can-focus">False</property>
             <child>
-              <object class="GtkButton" id="input_0">
-                <property name="label" translatable="yes">0</property>
-                <property name="width-request">222</property>
-                <property name="height-request">-1</property>
+              <object class="GtkButton" id="input_10">
+                <property name="label" translatable="yes">10</property>
                 <property name="visible">True</property>
                 <property name="can-focus">True</property>
                 <property name="receives-default">True</property>
@@ -273,16 +260,13 @@
                 <property name="vexpand">True</property>
               </object>
               <packing>
-                <property name="expand">False</property>
-                <property name="fill">True</property>
-                <property name="position">0</property>
+                <property name="left-attach">1</property>
+                <property name="top-attach">4</property>
               </packing>
             </child>
             <child>
-              <object class="GtkButton" id="input_.">
-                <property name="label" translatable="yes">.</property>
-                <property name="width-request">100</property>
-                <property name="height-request">-1</property>
+              <object class="GtkButton" id="input_0">
+                <property name="label" translatable="yes">0</property>
                 <property name="visible">True</property>
                 <property name="can-focus">True</property>
                 <property name="receives-default">True</property>
@@ -290,15 +274,13 @@
                 <property name="vexpand">True</property>
               </object>
               <packing>
-                <property name="expand">False</property>
-                <property name="fill">True</property>
-                <property name="position">1</property>
+                <property name="left-attach">0</property>
+                <property name="top-attach">4</property>
               </packing>
             </child>
             <child>
               <object class="GtkButton" id="input_=">
                 <property name="label" translatable="yes">=</property>
-                <property name="width-request">100</property>
                 <property name="visible">True</property>
                 <property name="can-focus">True</property>
                 <property name="receives-default">True</property>
@@ -306,16 +288,29 @@
                 <property name="vexpand">True</property>
               </object>
               <packing>
-                <property name="expand">False</property>
-                <property name="fill">True</property>
-                <property name="position">2</property>
+                <property name="left-attach">3</property>
+                <property name="top-attach">4</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkButton" id="input_.">
+                <property name="label" translatable="yes">.</property>
+                <property name="visible">True</property>
+                <property name="can-focus">True</property>
+                <property name="receives-default">True</property>
+                <property name="hexpand">True</property>
+                <property name="vexpand">True</property>
+              </object>
+              <packing>
+                <property name="left-attach">2</property>
+                <property name="top-attach">4</property>
               </packing>
             </child>
           </object>
           <packing>
             <property name="expand">False</property>
             <property name="fill">True</property>
-            <property name="position">2</property>
+            <property name="position">1</property>
           </packing>
         </child>
       </object>
